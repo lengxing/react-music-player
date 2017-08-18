@@ -46,7 +46,10 @@ export default class App extends Component {
       });
     });
     Pubsub.subscribe('PLAY_PAUSE',()=>{
-      if(!init) this.playMusic(this.state.currentMusic);
+      if(!init) {
+        this.playMusic(this.state.currentMusic);
+        init=true;
+      }
       if(this.state.playing) $('#player').jPlayer('pause');
       else $('#player').jPlayer('play');
       this.setState(prevState=>({
