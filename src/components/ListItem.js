@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Pubsub from 'pubsub-js'
-import '../style/ListItem.css'
+import '../styles/ListItem.css'
 
 export default class ListItem extends Component{
 	constructor(props){

@@ -5,7 +5,7 @@ import {MUSIC_LIST} from '../musicList'
 import Player from './Player';
 import List from './List'
 import logo from '../logo.svg';
-import '../style/App.css';
+import '../styles/App.css';
 import '../index'
 /* global $ */
 export default class App extends Component {

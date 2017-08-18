@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import Pubsub from 'pubsub-js';
 import Progress from './Progress';
-import '../style/Player.css';
+import '../styles/Player.css';
 /* global $ */
 export default class Player extends Component{
 	constructor(props){
