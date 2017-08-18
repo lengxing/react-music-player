@@ -8,7 +8,6 @@ import logo from '../logo.svg';
 import '../style/App.css';
 import '../index'
 /* global $ */
-let init;
 export default class App extends Component {
   constructor(){
     super();
@@ -23,12 +22,10 @@ export default class App extends Component {
     $('#player').jPlayer({
       supplied:'mp3',
       wmode:'window'
+    }).jPlayer('setMedia',{
+      mp3:this.state.currentMusic.file
     });
-    init= this.state.playing;
-    if(this.state.playing){
-      this.playMusic(this.state.currentMusic); 
-      init=true;
-    } else init=false;
+    if(this.state.playing) this.playMusic(this.state.currentMusic); 
     $('#player').bind($.jPlayer.event.ended,e=>{
       this.playNext();
       if(this.state.mode==='singleCycle') this.playNext('prev');
@@ -46,10 +43,6 @@ export default class App extends Component {
       });
     });
     Pubsub.subscribe('PLAY_PAUSE',()=>{
-      if(!init) {
-        this.playMusic(this.state.currentMusic);
-        init=true;
-      }
       if(this.state.playing) $('#player').jPlayer('pause');
       else $('#player').jPlayer('play');
       this.setState(prevState=>({
@@ -79,7 +72,6 @@ export default class App extends Component {
     })
   }
   componentWillUnmount(){
-    Pubsub.unsubscribe('NEED_INIT');
     Pubsub.unsubscribe('PLAY_PREV');
     Pubsub.unsubscribe('PLAY_NEXT');
     Pubsub.unsubscribe('PLAY_PAUSE');
