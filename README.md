@@ -2152,11 +2152,3 @@ To resolve this:
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
-=======
-# react-music-player
-
-This project is built with [Create Reacte App](https://github.com/facebookincubator/create-react-app)
-
-## How to start
-    $ npm start
->>>>>>> e1e26152189fa97bb512fb17a1f745a3cfec8265
